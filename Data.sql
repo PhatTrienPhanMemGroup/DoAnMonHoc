@@ -15,7 +15,7 @@ CREATE TABLE tbl_Table
 (
 	id INT IDENTITY PRIMARY KEY,
 	name NVARCHAR (100) NOT NULL DEFAULT N'Bàn chưa đặt tên',
-	status NVARCHAR(50) NOT NULL --Trống, Có người
+	status NVARCHAR(50) NOT NULL DEFAULT N'Trống' --Trống, Có người
 )
 GO
 CREATE TABLE tbl_Account
@@ -39,7 +39,8 @@ CREATE TABLE tbl_Drinks
 	id INT IDENTITY PRIMARY KEY,
 	name NVARCHAR (100) NOT NULL DEFAULT N'Chưa đặt tên',
 	idCategory INT NOT NULL,
-	price FLOAT NOT NULL,
+	price FLOAT NOT NULL DEFAULT 0
+	FOREIGN KEY (idCategory) REFERENCES tbl_DrinksCategory(id)
 )
 GO
 
@@ -50,7 +51,7 @@ CREATE TABLE tbl_Bill
 	dateCheckOut DATE,
 	idTable INT NOT NULL, 
 	status INT NOT NULL DEFAULT 0 --1: Đã thanh toán, 0: Chưa thanh toán (Mặc định là chưa thanh toán)
-
+	FOREIGN KEY (idTable) REFERENCES tbl_Table(id)
 )
 Go
 
@@ -60,5 +61,7 @@ CREATE TAble tbl_BillInfo
 	idBill INT NOT NULL,
 	idDrinks INT NOT NULL,
 	count INT NOT NULL DEFAULT 0 --Số lượng
+	FOREIGN KEY (idBill) REFERENCES tbl_Bill(id),
+	FOREIGN KEY (idDrinks) REFERENCES tbl_Drinks(id)
 )
 GO
