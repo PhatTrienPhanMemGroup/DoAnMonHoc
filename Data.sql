@@ -55,7 +55,7 @@ CREATE TABLE tbl_Bill
 )
 Go
 
-CREATE TAble tbl_BillInfo
+CREATE TABLE tbl_BillInfo
 (
 	id INT IDENTITY PRIMARY KEY,
 	idBill INT NOT NULL,
