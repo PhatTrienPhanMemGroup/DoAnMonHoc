@@ -1,5 +1,2 @@
 # DoAnMonHoc
-Test
-Test 2
-AAa
-A
+Đề tài: Phần mềm quản lý quán cafe
