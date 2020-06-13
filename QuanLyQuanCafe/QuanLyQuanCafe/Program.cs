@@ -8,6 +8,9 @@ namespace QuanLyQuanCafe
 {
     static class Program
     {
+        public static frmMain mainForm = null;
+        public static frmConfig editConfigForm = null;
+        public static frmLogin loginForm = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

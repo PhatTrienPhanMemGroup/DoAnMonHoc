@@ -12,9 +12,15 @@ namespace ThuVienControl
 {
     public partial class ucLogin : UserControl
     {
+        
         public ucLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
