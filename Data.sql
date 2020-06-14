@@ -15,6 +15,7 @@ CREATE TABLE tbl_Table
 (
 	id INT IDENTITY PRIMARY KEY,
 	name NVARCHAR (100) NOT NULL DEFAULT N'Bàn chưa đặt tên',
+	location INT NOT NULL DEFAULT 1, --1 :Tầng 1, 2:Tầng 2, ... 
 	status NVARCHAR(50) NOT NULL DEFAULT N'Trống' --Trống, Có người
 )
 GO
