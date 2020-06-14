@@ -22,13 +22,13 @@ namespace QuanLyQuanCafe
         {
             if (string.IsNullOrEmpty(txtUsername.Text.Trim()))
             {
-                MessageBox.Show("Không được bỏ trống " + lblUsername.Text.ToLower());
+                MessageBox.Show("Không được bỏ trống " + lblUsername.Text.ToLower(),"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.txtUsername.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(txtPassword.Text))
             {
-                MessageBox.Show("Không được bỏ trống " + lblPassword.Text.ToLower());
+                MessageBox.Show("Không được bỏ trống " + lblPassword.Text.ToLower(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.txtPassword.Focus();
                 return;
             }
@@ -36,12 +36,12 @@ namespace QuanLyQuanCafe
                 ProcessLogin();
             if (userManagement.Check_Config() == 1)
             {
-                MessageBox.Show("Chuỗi cấu hình không tồn tại");
+                MessageBox.Show("Chuỗi cấu hình không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ProcessConfig();
             }
             if (userManagement.Check_Config() == 2)
             {
-                MessageBox.Show("Chuỗi cấu hình không đúng");
+                MessageBox.Show("Chuỗi cấu hình không đúng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ProcessConfig();
             }
         }
@@ -59,12 +59,12 @@ namespace QuanLyQuanCafe
             result = userManagement.Check_User(txtUsername.Text, txtPassword.Text);
             if (result == 0) //Tài khoản không tồn tại
             {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (result == 1)
             {
-                MessageBox.Show("Tài khoản bị khóa");
+                MessageBox.Show("Tài khoản bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -77,12 +77,6 @@ namespace QuanLyQuanCafe
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn muốn thoát chứ?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                e.Cancel = true;
         }
     }
 }
