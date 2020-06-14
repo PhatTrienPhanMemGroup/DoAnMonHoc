@@ -51,6 +51,7 @@ namespace QuanLyQuanCafe
             this.Hide();
             config.ShowDialog();
             this.Show();
+            ClearText();
         }
 
         private void ProcessLogin()
@@ -72,8 +73,14 @@ namespace QuanLyQuanCafe
             this.Hide();
             main.ShowDialog();
             this.Show();
+            ClearText();
         }
-
+        public void ClearText()
+        {
+            txtUsername.Clear();
+            txtPassword.Clear();
+            txtUsername.Focus();
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
